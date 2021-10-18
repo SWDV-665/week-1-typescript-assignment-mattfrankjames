@@ -16,9 +16,12 @@ var cheese = new Grocery('Velveeta', 'Cheese Blocl', 'October 31, 2031');
 var burger = new Grocery('Impossible', 'Burger', 'October 21, 2021');
 var juice = new Grocery('Tropicana', 'Orange Juice', 'December 31, 2021');
 var groceries = [banana, apple, cheese, burger, juice];
-var randomInt = Math.floor(Math.random() * 10 + 1);
+function generateRandomInt() {
+    return Math.floor(Math.random() * 10 + 1);
+}
+;
 function printGroceries(items) {
-    return items.map(function (item) { return checkInventory(item, randomInt); });
+    return items.map(function (item) { return checkInventory(item, generateRandomInt()); });
 }
 var stringBuilder = printGroceries(groceries);
 document.body.innerHTML = "" + stringBuilder;

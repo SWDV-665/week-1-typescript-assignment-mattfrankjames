@@ -20,16 +20,18 @@ function checkInventory(item: Grocery, quantity: number): string {
 
 const banana = new Grocery('Chiquita', 'Banana', 'October 31, 2021');
 const apple = new Grocery('Dole', 'Honeycrisp Apple', 'November 31, 2021');
-const cheese = new Grocery('Velveeta', 'Cheese Blocl', 'October 31, 2031');
+const cheese = new Grocery('Velveeta', 'Cheese Block', 'October 31, 2031');
 const burger = new Grocery('Impossible', 'Burger', 'October 21, 2021');
 const juice = new Grocery('Tropicana', 'Orange Juice', 'December 31, 2021');
 
 const groceries = [banana, apple, cheese, burger, juice];
 
-const randomInt = Math.floor(Math.random() * 10 + 1);
+function generateRandomInt(): number {
+  return Math.floor(Math.random() * 10 + 1)
+};
 
 function printGroceries(items): string[] {
-  return items.map(item => checkInventory(item, randomInt));
+  return items.map(item => checkInventory(item, generateRandomInt()));
 }
 const stringBuilder = printGroceries(groceries)
 document.body.innerHTML = `${stringBuilder}`;
